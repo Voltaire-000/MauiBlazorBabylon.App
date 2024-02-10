@@ -23,6 +23,11 @@
     </div>
 
     <script src="_framework/blazor.webview.js" autostart="false"></script>
+    <script type="module">
+        import * as wgpu from './path/to/wgpu.js';
+        window.wgpu = wgpu;
+    </script>
+
 
 </body>
 

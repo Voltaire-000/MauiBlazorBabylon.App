@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop;
+
+
+<div @attributes="canvasAttributes"></div>
+
+@code {
+    private ElementReference canvas;
+
+    private Dictionary<string, object> canvasAttributes = new Dictionary<string, object>()
+    {
+        { "style", "width:100%; height:100%" }
+    };
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("createBabylonScene", canvas);
+            
+        }
+    }
+}
+
